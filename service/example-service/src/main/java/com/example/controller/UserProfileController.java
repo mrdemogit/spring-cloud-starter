@@ -1,8 +1,8 @@
 package com.example.controller;
 
 import com.example.mapper.UserProfileMapper;
-import com.example.model.UserProfile;
 import com.example.request.UserProfileRequest;
+import com.example.response.UserProfileResponse;
 import com.example.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,16 +16,15 @@ public class UserProfileController {
     @Autowired
     private UserProfileService userProfileService;
 
-    @Autowired
-    private UserProfileMapper userProfileMapper;
-
     @GetMapping("/{lastName}")
-    public Flux<UserProfile> getUserProfile(@PathVariable String lastName) {
-        return userProfileService.findByLastName(lastName);
+    public Flux<UserProfileResponse> getUserProfile(@PathVariable String lastName) {
+        return userProfileService.findByLastName(lastName).map(UserProfileMapper::toResponse);
     }
 
     @PostMapping
-    public Mono<UserProfile> createUserProfile(@RequestBody UserProfileRequest userProfileRequest) {
-        return userProfileService.createProfile(userProfileRequest.getFirstName(), userProfileRequest.getLastName());
+    public Mono<UserProfileResponse> createUserProfile(@RequestBody UserProfileRequest userProfileRequest) {
+        return userProfileService
+            .createProfile(userProfileRequest.getFirstName(), userProfileRequest.getLastName())
+            .map(UserProfileMapper::toResponse);
     }
 }

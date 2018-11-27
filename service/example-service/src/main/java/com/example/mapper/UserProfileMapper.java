@@ -1,16 +1,15 @@
 package com.example.mapper;
 
 import com.example.model.UserProfile;
-import com.example.request.UserProfileRequest;
-import org.springframework.stereotype.Component;
+import com.example.response.UserProfileResponse;
 
-@Component
+
 public class UserProfileMapper {
 
-    public UserProfile toModel(UserProfileRequest userProfileRequest){
-        UserProfile userProfile = new UserProfile();
-        userProfile.setFirstName(userProfileRequest.getFirstName());
-        userProfile.setLastName(userProfileRequest.getLastName());
-        return userProfile;
+    public static UserProfileResponse toResponse(UserProfile userProfile){
+        UserProfileResponse userProfileResponse = new UserProfileResponse();
+        userProfileResponse.setFirstName(userProfile.getFirstName());
+        userProfileResponse.setLastName(userProfile.getLastName());
+        return userProfileResponse;
     }
 }
