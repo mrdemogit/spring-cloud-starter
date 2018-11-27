@@ -1,11 +1,15 @@
 package com.example.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 public class UserProfile extends BaseEntity {
 
     private String firstName;
