@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    maximum-pool-size: 100
+  h2:
+    console:
+      enabled: true
