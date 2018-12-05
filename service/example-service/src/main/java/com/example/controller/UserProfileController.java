@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.config.SharedProperties;
 import com.example.mapper.UserProfileMapper;
 import com.example.request.UserProfileRequest;
 import com.example.response.UserProfileResponse;
@@ -15,6 +16,14 @@ public class UserProfileController {
 
     @Autowired
     private UserProfileService userProfileService;
+
+    @Autowired
+    private SharedProperties sharedProperties;
+
+    @GetMapping("/attribute")
+    public Mono<String> getTestProp() {
+        return Mono.just(sharedProperties.getAttribute());
+    }
 
     @GetMapping("/{lastName}")
     public Flux<UserProfileResponse> getUserProfile(@PathVariable String lastName) {
