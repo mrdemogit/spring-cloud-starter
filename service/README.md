@@ -8,8 +8,8 @@ Basic Rest Webservice with blocking jdbc
 4. ?Docker for consul
 
 ## Structure
-example-api - API module
-example-service - Service module
+- example-api - API module
+- example-service - Service module
 
 ## Minimal Steps to Setup
 Set Consul Service:

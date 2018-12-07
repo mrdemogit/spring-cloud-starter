@@ -1,0 +1,78 @@
+buildscript {
+    ext {
+        springBootVersion = "2.0.6.RELEASE"
+        springCloudVersion = "Finchley.SR2"
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("net.ltgt.gradle:gradle-apt-plugin:0.10")
+    }
+}
+
+apply plugin: "base"
+apply plugin: "project-report"
+
+allprojects {
+    apply plugin: "idea"
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+    idea {
+        module {
+            outputDir file("build/idea")
+        }
+    }
+
+}
+
+subprojects {
+    apply plugin: "net.ltgt.apt"
+    apply plugin: "java"
+    apply plugin: "io.spring.dependency-management"
+
+    sourceCompatibility = 1.11
+    targetCompatibility = 1.11
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    dependencies {
+        compile "org.projectlombok:lombok:1.18.4"
+        apt "org.projectlombok:lombok:1.18.4"
+    }
+}
+
+project(":example-gateway") {
+    apply plugin: "org.springframework.boot"
+
+    bootJar {
+        baseName = "example-gateway"
+        version = "0.1.0"
+    }
+
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter-webflux")
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+
+        compile("org.springframework.cloud:spring-cloud-starter-gateway")
+        compile("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
+        compile("org.springframework.cloud:spring-cloud-starter-consul-all:2.1.0.M2")
+
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
+}
+
+
