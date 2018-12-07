@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: example-gateway
+  main:
+    banner-mode: "off"
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+      config:
+        enabled: true
+server:
+  port: 8000
