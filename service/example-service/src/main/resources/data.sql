@@ -1,0 +1,13 @@
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (1, '2018-12-23 12:00:00', null, 'George', 'Bluth', 'https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (2, '2018-12-23 12:01:00', null, 'Janet', 'Weaver', 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (3, '2018-12-23 12:02:00', null, 'George', 'Dong', 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (4, '2018-12-23 12:03:00', null, 'Emma', 'Wong', 'https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (5, '2018-12-23 12:04:00', null, 'Eve', 'Holt', 'https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (6, '2018-12-23 12:04:00', null, 'Tracey', 'Morris', 'https://s3.amazonaws.com/uifaces/faces/twitter/bigmancho/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (7, '2018-12-23 12:04:00', null, 'Michael', 'Lawson', 'https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (8, '2018-12-23 12:04:00', null, 'Lindsay', 'Ferguson', 'https://s3.amazonaws.com/uifaces/faces/twitter/araa3185/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (9, '2018-12-23 12:04:00', null, 'Tobias', 'Funke', 'https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (10, '2018-12-23 12:04:00', null, 'Byron', 'Fields', 'https://s3.amazonaws.com/uifaces/faces/twitter/russoedu/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (11, '2018-12-23 12:04:00', null, 'George', 'Edwards', 'https://s3.amazonaws.com/uifaces/faces/twitter/mrmoiree/128.jpg');
+INSERT INTO USER_PROFILE (ID, CREATED_DATE, MODIFIED_DATE, FIRST_NAME, LAST_NAME, AVATAR) VALUES (12, '2018-12-23 12:04:00', null, 'Rachel', 'Howell', 'https://s3.amazonaws.com/uifaces/faces/twitter/hebertialmeida/128.jpg');
+
