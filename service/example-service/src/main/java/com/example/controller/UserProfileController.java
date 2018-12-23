@@ -7,7 +7,6 @@ import com.example.response.UserProfileResponse;
 import com.example.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -25,9 +24,14 @@ public class UserProfileController {
         return Mono.just(sharedProperties.getAttribute());
     }
 
-    @GetMapping("/{lastName}")
-    public Flux<UserProfileResponse> getUserProfile(@PathVariable String lastName) {
-        return userProfileService.findByLastName(lastName).map(UserProfileMapper::toResponse);
+    @GetMapping("/{id}")
+    public Mono<UserProfileResponse> getUserProfileById(@PathVariable Long id) {
+        return userProfileService.findById(id).map(UserProfileMapper::toResponse);
+    }
+
+    @GetMapping("/random")
+    public Mono<UserProfileResponse> getUserProfileRandom() {
+        return userProfileService.findByRandom().map(UserProfileMapper::toResponse);
     }
 
     @PostMapping
