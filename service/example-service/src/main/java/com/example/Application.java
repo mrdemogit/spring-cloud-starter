@@ -19,7 +19,6 @@ import java.util.concurrent.Executors;
 
 @EnableJpaAuditing
 @EnableDiscoveryClient
-@EnableConfigurationProperties(SharedProperties.class)
 @SpringBootApplication
 public class Application {
 
