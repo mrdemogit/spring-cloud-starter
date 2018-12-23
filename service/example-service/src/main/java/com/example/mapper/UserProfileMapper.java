@@ -11,6 +11,7 @@ public class UserProfileMapper {
         userProfileResponse.setId(userProfile.getId());
         userProfileResponse.setFirstName(userProfile.getFirstName());
         userProfileResponse.setLastName(userProfile.getLastName());
+        userProfileResponse.setAvatar(userProfile.getAvatar());
         userProfileResponse.setCreatedDate(userProfile.getCreatedDate());
         userProfileResponse.setModifiedDate(userProfile.getModifiedDate());
         return userProfileResponse;
