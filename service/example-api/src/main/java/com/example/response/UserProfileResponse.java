@@ -11,4 +11,5 @@ public class UserProfileResponse extends BaseResponse {
 
     private String firstName;
     private String lastName;
+    private String avatar;
 }
