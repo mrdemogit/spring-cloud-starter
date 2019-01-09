@@ -1,5 +1,6 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -11,7 +12,8 @@ import org.springframework.context.annotation.Bean;
 @EnableDiscoveryClient
 public class Gateway {
 
-    private final static String USER_PROFILE_SERVICE = "http://localhost:8100";
+    @Value("${service.userprofile}")
+    private String USER_PROFILE_SERVICE;
 
     public static void main(String[] args) {
         SpringApplication.run(Gateway.class, args);
@@ -22,10 +24,10 @@ public class Gateway {
         return builder.routes()
             .route("userProfilesByLastName", r -> r
                 .path("/userprofiles/**")
-                .filters(f -> f.rewritePath("(?<lastName>.*)", "${lastName}")
+                .filters(f -> f.rewritePath("(?<param>.*)", "${param}")
                     .hystrix(config -> config.setFallbackUri("forward:/userprofile-fallback"))
                 )
-                .uri(USER_PROFILE_SERVICE)
+                .uri(String.format("lb://%s",USER_PROFILE_SERVICE))
             )
             .build();
     }

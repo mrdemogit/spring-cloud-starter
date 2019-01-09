@@ -1,6 +1,6 @@
 spring:
   application:
-    name: gateway
+    name: example-service
   main:
     banner-mode: "off"
   cloud:
@@ -11,11 +11,10 @@ spring:
         prefer-ip-address: true
       config:
         enabled: true
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: user-profile-stats
+
 server:
-  port: 8000
-service:
-  userprofile: service-rdbms
+  port: 8200
