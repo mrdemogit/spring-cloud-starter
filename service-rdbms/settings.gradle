@@ -1,0 +1,3 @@
+rootProject.name = 'service-rdbms'
+include 'userprofile-api'
+include 'userprofile-service'

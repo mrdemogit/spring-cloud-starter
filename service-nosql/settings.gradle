@@ -1,0 +1,3 @@
+rootProject.name = 'service-nosql'
+include 'stats-api'
+include 'stats-service'
