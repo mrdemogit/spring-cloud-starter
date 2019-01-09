@@ -24,7 +24,7 @@ public class WebfluxApplicationTests {
     UserProfileService userProfileService;
 
     @Test
-    public void shouldGetUserProfileById_returnUserProfileResponse() {
+    public void testGetUserProfileById_shouldReturnUserProfileResponse() {
         webClient.get().uri("/userprofiles/{id}", 1)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
@@ -38,7 +38,7 @@ public class WebfluxApplicationTests {
     }
 
     @Test
-    public void shouldGetUserProfileByRandom_returnUserProfileResponse() {
+    public void testGetUserProfileByRandom_shouldReturnUserProfileResponse() {
         webClient.get().uri("/userprofiles/random")
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
@@ -51,7 +51,7 @@ public class WebfluxApplicationTests {
     }
 
     @Test
-    public void shouldCreateUserProfile_returnUserProfileResponse() {
+    public void testCreateUserProfile_shouldReturnUserProfileResponse() {
         UserProfileRequest userProfileRequest = new UserProfileRequest();
         userProfileRequest.setFirstName("FirstName");
         userProfileRequest.setLastName("LastName");
