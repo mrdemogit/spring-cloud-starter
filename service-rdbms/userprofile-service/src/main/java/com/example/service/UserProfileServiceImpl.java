@@ -49,8 +49,7 @@ public class UserProfileServiceImpl implements UserProfileService {
                 });
     }
 
-    @Override
-    public Mono<UserProfile> createProfile(String firstName, String lastName) {
+    public Mono<UserProfile> create(String firstName, String lastName) {
         return asyncInTransaction(
                 (status) -> {
                     UserProfile userProfile = new UserProfile();

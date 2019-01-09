@@ -37,7 +37,7 @@ public class UserProfileController {
     @PostMapping
     public Mono<UserProfileResponse> createUserProfile(@RequestBody UserProfileRequest userProfileRequest) {
         return userProfileService
-            .createProfile(userProfileRequest.getFirstName(), userProfileRequest.getLastName())
+            .create(userProfileRequest.getFirstName(), userProfileRequest.getLastName())
             .map(UserProfileMapper::toResponse);
     }
 }
