@@ -5,5 +5,5 @@ import reactor.core.publisher.Mono;
 
 public interface UserProfileStatsService {
 
-    Mono<UserProfileStats> updateOrSaveRenderCount(UserProfileStats userProfileStats);
+    Mono<UserProfileStats> save(UserProfileStats userProfileStats);
 }

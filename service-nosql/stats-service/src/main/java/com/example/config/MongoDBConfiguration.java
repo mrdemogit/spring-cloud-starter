@@ -4,14 +4,20 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
 
 public class MongoDBConfiguration extends AbstractReactiveMongoConfiguration {
 
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "1234";
-    private static final String DATABASE = "user_profile_stats";
+    @Value("${mongodb.username}")
+    private String USERNAME;
+
+    @Value("${mongodb.password}")
+    private String PASSWORD;
+
+    @Value("${mongodb.database}")
+    private String DATABASE;
 
     @Bean
     public MongoClient reactiveMongoClient() {

@@ -25,6 +25,4 @@ public class UserProfileStats {
     @Indexed
     private Date date;
 
-    @NotNull
-    private int renderCount;
 }

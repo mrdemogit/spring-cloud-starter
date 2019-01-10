@@ -7,7 +7,9 @@ import com.example.request.UserProfileStatsRequest;
 import com.example.service.UserProfileStatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserProfileConsumer {
 
     @Autowired
@@ -16,7 +18,7 @@ public class UserProfileConsumer {
     @KafkaListener(topics = "user-profile-topic")
     public void process(UserProfileStatsRequest userProfileStatsRequest) {
         UserProfileStats userProfileStats = UserProfileStatsMapper.toModel(userProfileStatsRequest);
-        userProfileStatsService.updateOrSaveRenderCount(userProfileStats);
+        userProfileStatsService.save(userProfileStats);
     }
 
 }
