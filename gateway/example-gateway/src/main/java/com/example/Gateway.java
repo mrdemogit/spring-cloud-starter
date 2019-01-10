@@ -22,8 +22,8 @@ public class Gateway {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-            .route("userProfilesByLastName", r -> r
-                .path("/userprofiles/**")
+            .route("userProfiles", r -> r
+                .path("/api/userprofiles/**")
                 .filters(f -> f.rewritePath("(?<param>.*)", "${param}")
                     .hystrix(config -> config.setFallbackUri("forward:/userprofile-fallback"))
                 )

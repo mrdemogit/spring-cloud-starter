@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/userprofiles")
+@RequestMapping("/api/userprofiles")
 public class UserProfileController {
 
     @Autowired
@@ -34,10 +34,10 @@ public class UserProfileController {
         return userProfileService.findByRandom().map(UserProfileMapper::toResponse);
     }
 
-    @PostMapping
-    public Mono<UserProfileResponse> createUserProfile(@RequestBody UserProfileRequest userProfileRequest) {
-        return userProfileService
-            .create(userProfileRequest.getFirstName(), userProfileRequest.getLastName())
-            .map(UserProfileMapper::toResponse);
-    }
+//    @PostMapping
+//    public Mono<UserProfileResponse> createUserProfile(@RequestBody UserProfileRequest userProfileRequest) {
+//        return userProfileService
+//            .create(userProfileRequest.getFirstName(), userProfileRequest.getLastName())
+//            .map(UserProfileMapper::toResponse);
+//    }
 }

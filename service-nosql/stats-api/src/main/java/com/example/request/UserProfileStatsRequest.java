@@ -12,5 +12,5 @@ import java.util.Date;
 public class UserProfileStatsRequest {
 
     private Long userProfileId;
-    private Date statsDate;
+    private Date date;
 }

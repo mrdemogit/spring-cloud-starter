@@ -2,24 +2,25 @@ package com.example.mapper;
 
 import com.example.model.UserProfileStats;
 import com.example.request.UserProfileStatsRequest;
-import com.example.response.UserProfileStatsResponse;
+import org.joda.time.DateTime;
+
+import java.util.Date;
 
 
 public class UserProfileStatsMapper {
 
-    public static UserProfileStatsResponse toResponse(UserProfileStats userProfile){
-        UserProfileStatsResponse userProfileStatsResponse = new UserProfileStatsResponse();
-        userProfileStatsResponse.setId(userProfile.getId());
-        userProfileStatsResponse.setUserProfileId(userProfile.getUserProfileId());
-        userProfileStatsResponse.setStatsDate(userProfile.getStatsDate());
-        return userProfileStatsResponse;
-    }
-
-    public static UserProfileStats toModel(UserProfileStatsRequest userProfileStatsRequest){
+    public static UserProfileStats toModel(UserProfileStatsRequest userProfileStatsRequest) {
         UserProfileStats userProfileStats = new UserProfileStats();
         userProfileStats.setUserProfileId(userProfileStatsRequest.getUserProfileId());
-        userProfileStats.setStatsDate(userProfileStatsRequest.getStatsDate());
+        userProfileStats.setDate(resetMinutesSecondsMillis(userProfileStatsRequest.getDate()));
         return userProfileStats;
     }
 
+    public static Date resetMinutesSecondsMillis(Date date) {
+        DateTime dateTime = new DateTime(date);
+        dateTime.withMinuteOfHour(0);
+        dateTime.withSecondOfMinute(0);
+        dateTime.withMillisOfSecond(0);
+        return dateTime.toDate();
+    }
 }

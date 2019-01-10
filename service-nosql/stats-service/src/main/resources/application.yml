@@ -1,6 +1,6 @@
 spring:
   application:
-    name: example-service
+    name: service-nosql
   main:
     banner-mode: "off"
   cloud:
