@@ -1,9 +1,3 @@
-- install mongo
-- mongo -u root -p 1234
-- use user_profile_stats
-- docker run -d -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=127.0.0.1 --env ADVERTISED_PORT=9092 --name kafka spotify/kafka
-- docker exec kafka /opt/kafka_2.11-0.10.1.0/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic user-profile-topic
-
 # Example of service
 Basic Rest Webservice with non-blocking jdbc 
 
