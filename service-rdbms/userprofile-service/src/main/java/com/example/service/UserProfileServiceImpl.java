@@ -52,14 +52,13 @@ public class UserProfileServiceImpl implements UserProfileService {
                         userProfile = userProfilePage.getContent().get(0);
                     }
 
-                    UserProfileStatsRequest userProfileStatsRequest = new UserProfileStatsRequest();
-                    userProfileStatsRequest.setDate(new Date());
-                    userProfileStatsRequest.setUserProfileId(userProfile.getId());
-
-                    userProfileProducer.sendUserProfile(userProfileStatsRequest);
-
                     return userProfile;
-                });
+                }).doOnSuccess(userProfile -> {
+            UserProfileStatsRequest userProfileStatsRequest = new UserProfileStatsRequest();
+            userProfileStatsRequest.setDate(new Date());
+            userProfileStatsRequest.setUserProfileId(userProfile.getId());
+            userProfileProducer.sendUserProfile(userProfileStatsRequest);
+        });
     }
 
     public Mono<UserProfile> create(String firstName, String lastName) {
