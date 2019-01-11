@@ -51,7 +51,7 @@ subprojects {
 project(":userprofile-api") {
     jar {
         baseName = "userprofile-api"
-        version = "0.1.0"
+        version = "0.2.0"
     }
 }
 
@@ -60,7 +60,7 @@ project(":userprofile-service") {
 
     bootJar {
         baseName = "userprofile-service"
-        version = "0.1.0"
+        version = "0.2.0"
     }
 
     dependencies {
@@ -69,6 +69,7 @@ project(":userprofile-service") {
         compile("org.springframework.boot:spring-boot-starter-webflux")
         compile("org.springframework.boot:spring-boot-starter-data-jpa")
         compile("org.springframework.boot:spring-boot-starter-actuator")
+        compile("org.springframework.kafka:spring-kafka")
 
         compile("org.springframework.cloud:spring-cloud-starter-consul-all:2.1.0.M2")
 

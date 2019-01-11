@@ -1,6 +1,8 @@
 package com.example.service;
 
 import com.example.model.UserProfile;
+import com.example.producer.UserProfileProducer;
+import com.example.producer.UserProfileStatsRequest;
 import com.example.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +13,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
+import java.util.Date;
 import java.util.concurrent.Callable;
 
 @Service
@@ -25,6 +28,9 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Autowired
     private TransactionTemplate transactionTemplate;
+
+    @Autowired
+    private UserProfileProducer userProfileProducer;
 
     @Override
     public Mono<UserProfile> findById(Long id) {
@@ -45,6 +51,13 @@ public class UserProfileServiceImpl implements UserProfileService {
                     if (userProfilePage.hasContent()) {
                         userProfile = userProfilePage.getContent().get(0);
                     }
+
+                    UserProfileStatsRequest userProfileStatsRequest = new UserProfileStatsRequest();
+                    userProfileStatsRequest.setDate(new Date());
+                    userProfileStatsRequest.setUserProfileId(userProfile.getId());
+
+                    userProfileProducer.sendUserProfile(userProfileStatsRequest);
+
                     return userProfile;
                 });
     }

@@ -3,13 +3,14 @@ Basic Rest Webservice with blocking jdbc
 
 ## Requirements
 1. Consul Service
-2. Java 1.11.x
-3. Gradle
-4. ?Docker for consul
+2. Kafka Broker
+3. Java 1.11.x
+4. Gradle
+5. ?Docker for consul, kafka
 
 ## Structure
-- example-api - API module
-- example-service - Service module
+- userprofile-api - API module
+- userprofile-service - Service module
 
 ## Minimal Steps to Setup
 Set Consul Service:
@@ -18,7 +19,7 @@ Set Consul Service:
 
 Run Service in terminal:
 1. gradle build
-2. java -jar example-service/build/libs/example-service-0.1.0.jar
+2. java -jar example-service/build/libs/example-service-0.2.0.jar
 3. check if service is running: http://localhost:8500/
 
 ## Set Shared Attribute with Consul
