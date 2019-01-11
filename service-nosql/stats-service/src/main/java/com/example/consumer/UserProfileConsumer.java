@@ -1,6 +1,5 @@
 package com.example.consumer;
 
-
 import com.example.mapper.UserProfileStatsMapper;
 import com.example.model.UserProfileStats;
 import com.example.request.UserProfileStatsRequest;
@@ -18,7 +17,7 @@ public class UserProfileConsumer {
     @KafkaListener(topics = "${spring.kafka.topic.user-profile}")
     public void process(UserProfileStatsRequest userProfileStatsRequest) {
         UserProfileStats userProfileStats = UserProfileStatsMapper.toModel(userProfileStatsRequest);
-        userProfileStatsService.save(userProfileStats);
+        userProfileStatsService.save(userProfileStats).subscribe();
     }
 
 }

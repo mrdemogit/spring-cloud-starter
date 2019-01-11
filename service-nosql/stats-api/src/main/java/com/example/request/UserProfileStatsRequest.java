@@ -13,6 +13,5 @@ public class UserProfileStatsRequest {
 
     private Long userProfileId;
     private Date date;
-    private String device;
-    private String location;
+
 }
