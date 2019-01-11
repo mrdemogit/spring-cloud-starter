@@ -25,6 +25,6 @@ Create user-profile-topic in Kafka Broker:
 
 Run Service in terminal:
 1. gradle build
-2. java -jar example-service/build/libs/example-service-0.2.0.jar
+2. java -jar example-service/build/libs/stats-service-0.2.0.jar
 3. check if service is running: http://localhost:8500/
 
