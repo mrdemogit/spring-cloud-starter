@@ -8,7 +8,6 @@ import com.example.service.UserProfileStatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Mono;
 
 @Component
 public class UserProfileConsumer {
@@ -19,10 +18,7 @@ public class UserProfileConsumer {
     @KafkaListener(topics = "${spring.kafka.topic.user-profile}")
     public void process(UserProfileStatsRequest userProfileStatsRequest) {
         UserProfileStats userProfileStats = UserProfileStatsMapper.toModel(userProfileStatsRequest);
-        Mono u = userProfileStatsService.save(userProfileStats);
-        u.subscribe(f -> {
-            System.out.println(f.toString());
-        });
+        userProfileStatsService.save(userProfileStats);
     }
 
 }
