@@ -73,8 +73,6 @@ project(":stats-service") {
 
         compile("org.springframework.cloud:spring-cloud-starter-consul-all:2.1.0.M2")
 
-        compile("com.h2database:h2")
-
         testCompile("org.springframework.boot:spring-boot-starter-test")
         testCompile("io.projectreactor:reactor-test")
     }
