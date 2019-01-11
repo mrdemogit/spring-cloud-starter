@@ -16,6 +16,10 @@ Basic Rest Webservice with blocking jdbc
 Set Consul Service:
 1. Run Docker
 2. docker run -d -p 8500:8500 -e CONSUL_CLIENT_INTERFACE='eth0' -e CONSUL_BIND_INTERFACE='eth0' --restart=always --name consul consul:latest
+4. docker run -d -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=127.0.0.1 --env ADVERTISED_PORT=9092 --name kafka spotify/kafka
+
+Create user-profile-topic in Kafka Broker: 
+1. docker exec kafka /opt/kafka_2.11-0.10.1.0/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic user-profile-topic
 
 Run Service in terminal:
 1. gradle build
