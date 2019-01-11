@@ -1,9 +1,6 @@
 package com.example.producer;
 
-import org.springframework.beans.factory.annotation.Autowired;
+public interface UserProfileProducer {
 
-public class UserProfileProducer {
-
-    @Autowired
-    private KafkaTemplate<String, String> template;
+    void sendUserProfile(UserProfileStatsRequest userProfileMessage);
 }

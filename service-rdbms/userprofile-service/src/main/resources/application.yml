@@ -29,5 +29,10 @@ spring:
         prefer-ip-address: true
       config:
         enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
 server:
   port: 8100
+kafka:
+  topic:
+    user-profile: user-profile-topic
