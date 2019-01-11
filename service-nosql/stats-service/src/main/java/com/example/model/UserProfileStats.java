@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @RequiredArgsConstructor
-@Document(collection = "user_profile_stats")
+@Document
 public class UserProfileStats {
 
 
@@ -24,5 +24,9 @@ public class UserProfileStats {
     @NotNull
     @Indexed
     private Date date;
+
+    private String device;
+
+    private String location;
 
 }

@@ -11,13 +11,18 @@ spring:
         prefer-ip-address: true
       config:
         enabled: true
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: "user_profile_stats"
+      password: "1234"
+      username: "user"
   kafka:
-    bootstrap-servers: kafka:9092
+    bootstrap-servers: localhost:9092
     consumer:
       group-id: user-profile-stats
-mongodb:
-  username: root
-  password: 1234
-  database: user_profile_stats
+    topic:
+      user-profile: user-profile-topic
 server:
   port: 8200

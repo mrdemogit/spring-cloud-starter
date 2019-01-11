@@ -10,6 +10,8 @@ public class UserProfileStatsMapper {
         UserProfileStats userProfileStats = new UserProfileStats();
         userProfileStats.setUserProfileId(userProfileStatsRequest.getUserProfileId());
         userProfileStats.setDate(userProfileStatsRequest.getDate());
+        userProfileStats.setDevice(userProfileStatsRequest.getDevice());
+        userProfileStats.setLocation(userProfileStatsRequest.getLocation());
         return userProfileStats;
     }
 
