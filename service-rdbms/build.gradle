@@ -55,6 +55,8 @@ project(":userprofile-api") {
     }
 }
 
+
+
 project(":userprofile-service") {
     apply plugin: "org.springframework.boot"
 
@@ -80,7 +82,6 @@ project(":userprofile-service") {
 
         testCompile("org.springframework.boot:spring-boot-starter-test")
         testCompile("io.projectreactor:reactor-test")
-        testCompile("org.mockito:mockito-core:2.23.4")
     }
 }
 
