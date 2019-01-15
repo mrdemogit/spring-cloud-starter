@@ -13,7 +13,7 @@ public class UserProfileProducerImpl implements UserProfileProducer{
     private KafkaTemplate<String, UserProfileStatsRequest> template;
 
 
-    @Value("${kafka.topic.user-profile}")
+    @Value("${spring.kafka.topic.user-profile}")
     private String TOPIC;
 
     @Override
