@@ -16,6 +16,6 @@ spring:
         locator:
           enabled: true
 server:
-  port: 8000
+  port: 2001
 service:
   userprofile: service-rdbms

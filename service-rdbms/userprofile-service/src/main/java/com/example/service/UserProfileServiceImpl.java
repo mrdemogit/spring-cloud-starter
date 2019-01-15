@@ -29,9 +29,6 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Autowired
     private TransactionTemplate transactionTemplate;
 
-    @Autowired
-    private UserProfileProducer userProfileProducer;
-
     @Override
     public Mono<UserProfile> findById(Long id) {
         return async(() -> userProfileRepository
@@ -53,12 +50,7 @@ public class UserProfileServiceImpl implements UserProfileService {
                     }
 
                     return userProfile;
-                }).doOnSuccess(userProfile -> {
-            UserProfileStatsRequest userProfileStatsRequest = new UserProfileStatsRequest();
-            userProfileStatsRequest.setDate(new Date());
-            userProfileStatsRequest.setUserProfileId(userProfile.getId());
-            userProfileProducer.sendUserProfile(userProfileStatsRequest);
-        });
+                });
     }
 
     public Mono<UserProfile> create(String firstName, String lastName) {

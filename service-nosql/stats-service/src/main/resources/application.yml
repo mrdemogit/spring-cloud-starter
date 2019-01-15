@@ -25,4 +25,4 @@ spring:
     topic:
       user-profile: user-profile-topic
 server:
-  port: 8200
+  port: 2003
