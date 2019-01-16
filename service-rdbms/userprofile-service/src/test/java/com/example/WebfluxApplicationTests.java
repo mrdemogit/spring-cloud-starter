@@ -43,9 +43,8 @@ public class WebfluxApplicationTests {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(UserProfileResponse.class)
-                .consumeWith(response -> {
-                            Assertions.assertThat(response.getResponseBody()).isNotNull();
-                        }
+                .consumeWith(response ->
+                        Assertions.assertThat(response.getResponseBody()).isNotNull()
                 );
     }
 
